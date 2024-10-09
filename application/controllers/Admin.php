@@ -20,11 +20,15 @@ class Admin extends CI_Controller
         $this->load->view('layout/footer');
     }
     public function data_anggota(){
-        $data['user'] = $this->User_model->getUserWhere(['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->User_model->getUserWhere()->result_array();
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
         $this->load->view('layout/topbar');
-        $this->load->view('admin/data_anggota');
+        $this->load->view('admin/data_anggota',$data);
         $this->load->view('layout/footer');
+    }
+    public function hapus_anggota($id){
+        $delete = $this->User_model->hapus_anggota($id);
+        redirect('admin/data_anggota');
     }
 }

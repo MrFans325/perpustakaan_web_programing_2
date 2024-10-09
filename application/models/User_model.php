@@ -31,4 +31,8 @@ class User_model extends CI_Model
 
                 $this->db->update('entries', $this, array('id' => $_POST['id']));
         }
+        public function hapus_anggota($id){
+                $this->db->where(['id_user'=>$id]);
+                $this->db->delete('user');
+        }       
 }
