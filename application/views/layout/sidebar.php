@@ -32,12 +32,12 @@
         <span>Data Anggota</span></a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="<?= base_url()?>admin/data_kategori">
         <i class="fas fa-fw fa-table"></i>
         <span>Data Kategori</span></a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="<?= base_url()?>admin/data_buku">
         <i class="fas fa-fw fa-table"></i>
         <span>Data Buku</span></a>
 </li>

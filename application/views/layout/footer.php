@@ -52,12 +52,39 @@
 <!-- Page level custom scripts -->
 <script src="<?= base_url('assets/') ?>js/demo/datatables-demo.js"></script>
 <!-- Custom scripts for all pages-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
 <?php
 if ($this->session->flashdata('message') != '') { ?>
     <script>
         $(document).ready(function() {
             alert("<?= $this->session->flashdata('message') ?>");
+        });
+    </script>
+<?php
+}
+?>
+<?php
+if ($this->session->flashdata('success') != '') { ?>
+    <script>
+        $(document).ready(function() {
+            Swal.fire({
+                title: "<?= $this->session->flashdata('success') ?>",
+                icon: "success"
+            });
+        });
+    </script>
+<?php
+}
+?>
+<?php
+if ($this->session->flashdata('error') != '') { ?>
+    <script>
+        $(document).ready(function() {
+            Swal.fire({
+                title: "<?= $this->session->flashdata('error') ?>",
+                icon: "error"
+            });
         });
     </script>
 <?php
