@@ -41,6 +41,16 @@
         <i class="fas fa-fw fa-table"></i>
         <span>Data Buku</span></a>
 </li>
+<li class="nav-item">
+    <a class="nav-link" href="<?= base_url()?>admin/booking">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Data Booking</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="<?= base_url()?>admin/data_peminjaman">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Data Peminjaman</span></a>
+</li>
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">

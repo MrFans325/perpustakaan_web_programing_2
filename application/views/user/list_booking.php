@@ -14,7 +14,6 @@
                 <th>Pengarang</th>
                 <th>Tahun Terbit</th>
                 <th>Tanggal Booking</th>
-                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -27,13 +26,7 @@
                         <td><?= $b->penerbit; ?></td>
                         <td><?= $b->pengarang; ?></td>
                         <td><?= $b->tahun_terbit; ?></td>
-                        <td><?= date('d-m-Y H:i', strtotime($b->tgl_booking)); ?></td>
-                        <td>
-                            <!-- Tombol Hapus -->
-                            <a href="<?= base_url('User/hapus_booking/' . $b->id_buku); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus booking ini?');">
-                                Hapus
-                            </a>
-                        </td>
+                        <td><?= date('d-m-Y'); ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>
@@ -44,13 +37,4 @@
         </tbody>
     </table>
 
-    <!-- Tombol "Lanjutkan ke Peminjaman" -->
-    <div class="d-flex justify-content-end">
-        <a href="<?= base_url('user/dashboard'); ?>" class="btn btn-primary">
-            Lanjutkan Booking
-        </a>
-        <a href="<?= base_url('User/finish_booking'); ?>" class="btn btn-primary">
-            Lanjutkan ke Peminjaman
-        </a>
-    </div>
 </div>

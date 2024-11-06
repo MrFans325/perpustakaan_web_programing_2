@@ -35,4 +35,11 @@ class User_model extends CI_Model
                 $this->db->where(['id_user'=>$id]);
                 $this->db->delete('user');
         }       
+
+        public function get_temp($id){
+                return $this->db->get_where('temp',['id_user'=>$id]);
+        }
+        public function get_list_booking(){
+                return $this->db->get_where('booking',['tgl_booking'=>date('Y-m-d')]);
+        }
 }

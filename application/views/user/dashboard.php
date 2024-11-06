@@ -20,9 +20,13 @@
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?= base_url()?>user/detailbuku/<?=$vb['id_buku']?>" target="_blank">Detail</a></div>
                         </div>
+                        <?php
+                        if (isset($user)) { 
+                        ?>
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Booking</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?= base_url('booking/booking/' . $vb['id_buku']); ?>">Booking</a></div>
                         </div>
+                        <?php }?>
                     </div>
                 </div>
             <?php
