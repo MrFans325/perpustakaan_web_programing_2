@@ -19,7 +19,11 @@ class Buku_model extends CI_Model
     {
         return $this->db->get_where('buku', $where);
     }
-
+    public function bukuDetail($where){
+        $this->db->select("buku.*,kategori.jenis_kategori as kategori");
+        $this->db->join('kategori','buku.id_kategori=kategori.id_kategori');
+        return $this->db->get_where('buku', $where);
+    }
     public function simpanBuku($data = null)
     {
         $this->db->insert('buku', $data);
