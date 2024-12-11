@@ -97,6 +97,11 @@ class Auth extends CI_Controller
             }
         } else {
             $email = $this->input->post('email', true);
+            if($this->input->post('role')){
+                $role_id = $this->input->post('role');
+            }else{
+                $role_id = 'user';
+            }
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
