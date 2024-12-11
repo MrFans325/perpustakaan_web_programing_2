@@ -35,6 +35,7 @@
                                     <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password" name="repassword">
                                 </div>
                             </div>
+                            <input type="hidden" name="role" value="user">
                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Daftar Akun
                             </button>
