@@ -42,4 +42,8 @@ class User_model extends CI_Model
         public function get_list_booking(){
                 return $this->db->get_where('booking',['tgl_booking'=>date('Y-m-d')]);
         }
+        public function konfirmasi_user($id){
+                $this->db->where('id_user',$id);
+                $this->db->update('user',['is_active'=>1]);
+        }
 }

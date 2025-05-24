@@ -14,31 +14,31 @@
                     <div class="card bg-primary text-white shadow">
                         <div class="card-body">
                             Data Anggota
-                            <div class="text-white-50 small">#4e73df</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-success text-white shadow">
-                        <div class="card-body">
-                            Stok Buku
-                            <div class="text-white-50 small">#1cc88a</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-info text-white shadow">
-                        <div class="card-body">
-                            Buku yang di pinjam
-                            <div class="text-white-50 small">#36b9cc</div>
+                            <div class="text-white-50 small"><?= count($pengguna)?></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-4">
                     <div class="card bg-warning text-white shadow">
                         <div class="card-body">
-                            Buku yang di booking
-                            <div class="text-white-50 small">#f6c23e</div>
+                            Data Admin
+                            <div class="text-white-50 small"><?= count($admin)?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card bg-success text-white shadow">
+                        <div class="card-body">
+                            Total Judul Buku
+                            <div class="text-white-50 small"><?= count($buku)?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card bg-info text-white shadow">
+                        <div class="card-body">
+                            Total Kategori
+                            <div class="text-white-50 small"><?= count($kategori)?></div>
                         </div>
                     </div>
                 </div>

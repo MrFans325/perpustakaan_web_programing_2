@@ -98,4 +98,10 @@ class Buku_model extends CI_Model
         $this->db->where($where);
         return $this->db->get();
     }
+
+    public function search_order_buku($keyword){
+        $this->db->like('judul_buku',$keyword);
+        $this->db->order_by("judul_buku ASC");
+        return $this->db->get('buku');
+    }
 }

@@ -1,15 +1,12 @@
 <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Tables</h1>
-<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-    For more information about DataTables, please visit the <a target="_blank"
-        href="https://datatables.net">official DataTables documentation</a>.</p>
+<h1 class="h3 mb-2 text-gray-800">Table User</h1>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Table User</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -47,7 +44,14 @@
                             <td><?= $vu['email']?></td>
                             <td><?= $vu['role_id']?></td>
                             <td>
-                            <a href="<?= base_url('admin/hapus_anggota/')?><?=$vu['id_user']?>">Hapus</a>
+                            <a href="<?= base_url('admin/hapus_anggota/')?><?=$vu['id_user']?>" onclick="return confirm('Apakah Kamu ingin menghapus akun ini ?')"> <button class="btn btn-danger"> Hapus</button></a>
+                            <?php
+                            if($vu['is_active'] ==0){
+                            ?>
+                            <a href="<?= base_url('admin/konfirmasi/')?><?=$vu['id_user']?>" onclick="return confirm('Apakah Kamu ingin mengaktifkan akun ini ?')"><button class="btn btn-danger"> Aktivasi</button></a>
+                            <?php
+                            }
+                            ?>
                             </td>
                         </tr>
                     <?php

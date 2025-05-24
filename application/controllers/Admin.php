@@ -6,6 +6,9 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        // if (ENVIRONMENT === 'development') {
+        //     $this->output->enable_profiler(TRUE);
+        // }
         $this->load->model('User_model');
         $this->load->model('Buku_model');
         $this->load->model('Booking_model');
@@ -15,6 +18,10 @@ class Admin extends CI_Controller
     {
         $data['judul'] = "Dashboard";
         $data['user'] = $this->User_model->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['pengguna'] = $this->User_model->getUserWhere(['role_id' => 'user'])->result_array();
+        $data['admin'] = $this->User_model->getUserWhere(['role_id' => 'admin'])->result_array();
+        $data['buku'] = $this->Buku_model->getBuku()->result_array();
+        $data['kategori'] = $this->Buku_model->getKategori()->result_array();
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
         $this->load->view('layout/topbar');
@@ -165,8 +172,10 @@ class Admin extends CI_Controller
             'stok' => $this->input->post('stok', true),
             'dipinjam' => 0,
             'dibooking' => 0,
-            'image' => $gambar
         ];
+        if($gambar !=''){
+            $data['image'] = $gambar;
+        }
 
         if ($this->input->post('id')) {
             $this->Buku_model->updateBuku($data, ['id_buku' => $this->input->post('id')]);
@@ -268,14 +277,25 @@ class Admin extends CI_Controller
             $denda = 0;
         }
         $data_update = array(
-            'status' =>'Kembali',
+            'status' => 'Kembali',
             'tgl_pengembalian' => date('Y-m-d'),
-            'total_denda' =>$denda
+            'total_denda' => $denda
         );
         $data_denda = array(
             'denda' => $denda
         );
-        $aksi_pinjam = $this->Booking_model->update_pinjam($id_pinjam,$data_update,$data_denda);
+        $aksi_pinjam = $this->Booking_model->update_pinjam($id_pinjam, $data_update, $data_denda);
         redirect('Admin/data_pinjaman');
+    }
+    public function konfirmasi($id = '')
+    {
+        if ($id == '') {
+            $this->session->set_flashdata('error', 'Data Akun Tidak di temukan');
+            redirect('Admin/data_anggota');
+        } else {
+            $this->User_model->konfirmasi_user($id);
+            $this->session->set_flashdata('success', 'Data Akun Sudah Di Aktivasi');
+            redirect('Admin/data_anggota');
+        }
     }
 }

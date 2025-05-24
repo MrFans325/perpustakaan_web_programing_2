@@ -12,7 +12,7 @@ class User extends CI_Controller
     }
     public function index()
     {
-        echo "user nich";
+        redirect('user/dashboard');
     }
     public function dashboard()
     {
@@ -40,15 +40,6 @@ class User extends CI_Controller
         $this->load->view('user/detail_buku');
         $this->load->view('user/modal');
         $this->load->view('user/footer_user');
-    }
-    public function test_model()
-    {
-        echo "
-        test model
-        <pre>";
-        var_dump($this->User_model->get_data('kategori'));
-        echo "</pre>";
-        echo "user nich";
     }
     public function finish_booking()
     {
@@ -119,5 +110,24 @@ class User extends CI_Controller
             $this->session->set_flashdata('error', 'Booking Gagal');
             redirect('user/dashboard');
         }
+    }
+    public function hapus_booking($id){
+        $this->db->where('id',$id);
+        $this->db->delete('temp');
+        $this->session->set_flashdata('success', 'Hapus data booking berhasil');
+        redirect('user/dashboard');
+    }
+    public function search_buku(){
+        $keyword = $this->input->get('keyword');
+        $data['buku'] = $this->Buku_model->search_order_buku($keyword)->result_array();
+        $data['title'] = "Perpustakaan Booking";
+        $data_user = $this->session->get_userdata();
+        if (isset($data_user['role_id'])) {
+            $data['user'] = $data_user;
+        }
+        $this->load->view('user/header_user', $data);
+        $this->load->view('user/dashboard');
+        $this->load->view('user/modal');
+        $this->load->view('user/footer_user');
     }
 }

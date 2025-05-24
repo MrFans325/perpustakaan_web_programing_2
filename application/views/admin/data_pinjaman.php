@@ -1,18 +1,15 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-
+    <h1 class="h3 mb-2 text-gray-800">Data Pinjaman</h1>
+    <p class="mb-4"></p>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Booking</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Pinjam</h6>
         </div>
         <div class="card-body">
             <div style="width: 50% !important;">
-                <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#Modal_edit_kategori" data-kategori="" data-id="" onclick="modal_edit(this)"><i class="fas fa-plus-square"></i>Tambah Data</button>
                 <table class="table table-bordered" cellspacing="0">
                     <thead>
                         <tr>
@@ -58,7 +55,7 @@
                                 <td><?= $vp->tgl_pengembalian ?></td>
                                 <td><?= $beda_hari ?> Hari</td>
                                 <td>5000</td>
-                                <td><button class="btn btn-outline-warning disabled"><?= $vp->status ?></button>
+                                <td><button class="btn btn-warning disabled"><?= $vp->status ?></button>
                                 </td>
                                 <td><?= $vp->total_denda ?></td>
                                 <td> <a href="<?= base_url('admin/ubah_status_pinjam/'.$vp->no_pinjam )?>"><button class="btn btn-outline-secondary">Ubah Status</button></a></td>
